@@ -18,7 +18,7 @@ import unittest
 import uuid
 from multiprocessing import Pool
 
-from fate_arch.computing import ComputingType
+from fate_arch.computing import ComputingEngine
 from fate_arch.session import Session
 from federatedml.util import consts
 
@@ -51,7 +51,7 @@ class TestBlocks(unittest.TestCase):
             partyid = 9999 + ind
 
         with Session() as session:
-            session.init_computing(job_id, computing_type=ComputingType.STANDALONE)
+            session.init_computing(job_id, computing_type=ComputingEngine.STANDALONE)
             session.init_federation(federation_session_id=job_id,
                                     runtime_conf={"local": {"role": role, "party_id": partyid}, "role": partyid_map})
             return func(job_id, role, ind, *args)
