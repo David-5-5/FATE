@@ -21,7 +21,7 @@ import argparse
 import numpy as np
 
 from fate_arch.session import computing_session as session
-from fate_arch.computing import ComputingType
+from fate_arch.computing import ComputingEngine
 from fate_arch.session import Session
 from federatedml.feature.homo_feature_binning import homo_split_points
 from federatedml.feature.instance import Instance
@@ -159,7 +159,7 @@ if __name__ == '__main__':
     print("args: {}".format(args))
 
     with Session() as session:
-        session.init_computing(job_id, computing_type=ComputingType.STANDALONE)
+        session.init_computing(job_id, computing_type=ComputingEngine.STANDALONE)
         session.init_federation(job_id,
                                 runtime_conf={"local": {
                                     "role": role,
