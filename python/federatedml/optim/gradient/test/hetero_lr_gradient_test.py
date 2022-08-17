@@ -34,6 +34,7 @@ class TestHeteroLogisticGradient(unittest.TestCase):
         self.hetero_lr_gradient = hetero_lr_gradient_and_loss.Guest()
 
         size = 10
+        session.init("test_hetero_logistic_gradient")
         self.en_wx = session.parallelize([self.paillier_encrypt.encrypt(i) for i in range(size)],
                                          partition=48,
                                          include_key=False)

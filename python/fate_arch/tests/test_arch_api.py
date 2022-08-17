@@ -20,7 +20,7 @@ from fate_arch import session
 
 
 sess = session.Session()
-sess.init_computing()
+sess.as_global().init_computing()
 
 data = []
 for i in range(10):
